@@ -6,7 +6,7 @@ Aplikasi Streamlit untuk Tugas Akhir Muhammad Antarez Qhadafi (1301210572), S1 I
 | Tab | Isi |
 |---|---|
 | Coba Prediksi | Ketik kalimat, lalu lihat hasil ketiga model berdampingan. Token yang hasilnya berbeda antar model ditandai. |
-| Contoh Data Uji | Kalimat acak dari test set: label asli vs prediksi tiap model. Berguna untuk demo saat sidang. |
+| Contoh Data Uji | Kalimat acak dari test set: label asli vs prediksi tiap model. Berguna untuk demo. |
 | Hasil Penelitian | Tabel 4.1 (precision/recall/F1 entitas orang), Tabel 4.2 (TP/FP/FN), **penjelasan kenapa BiLSTM-CRF lebih rendah** (analisis nama baru/OOV), analisis error per label, dan kurva loss. |
 | Tentang Penelitian | Identitas TA, dataset, alur sistem, arsitektur ketiga model, dan saran. |
 
