@@ -71,15 +71,44 @@ def sent2features(sent):
     return [word2features(sent, i) for i in range(len(sent))]
 
 
+_TAGGER = None
+_TAGGER_DIR = os.path.join(NLTK_DIR, "taggers", "averaged_perceptron_tagger_eng")
+
+
+def _load_tagger():
+    """Muat POS tagger perceptron NLTK langsung dari file JSON di folder nltk_data/.
+    Tidak memakai pencarian path NLTK (nltk.data.find), yang bisa gagal di server
+    seperti Streamlit Cloud. Bila gagal, coba cara standar NLTK."""
+    global _TAGGER
+    if _TAGGER is not None:
+        return _TAGGER
+    from nltk.tag.perceptron import PerceptronTagger
+    try:
+        tagger = PerceptronTagger(load=False)
+        params = []
+        for fname in tagger.param_files("eng"):           # weights, tagdict, classes
+            with open(os.path.join(_TAGGER_DIR, fname), encoding="utf-8") as f:
+                params.append(json.load(f))
+        tagger.decode_json_params(params)
+    except Exception:
+        import nltk
+        if NLTK_DIR not in nltk.data.path:
+            nltk.data.path.insert(0, NLTK_DIR)
+        try:
+            tagger = PerceptronTagger()
+        except LookupError:
+            nltk.download("averaged_perceptron_tagger_eng", quiet=True)
+            tagger = PerceptronTagger()
+    _TAGGER = tagger
+    return _TAGGER
+
+
 def pos_tag(tokens, mode="nltk"):
     """mode='nltk' -> POS tagger Penn Treebank (tagset sama dg CoNLL-2003);
     mode='dummy' -> semua 'NN' seperti di notebook."""
     if mode == "dummy" or not tokens:
         return ["NN"] * len(tokens)
-    import nltk
-    if NLTK_DIR not in nltk.data.path:
-        nltk.data.path.insert(0, NLTK_DIR)
-    return [p for _, p in nltk.pos_tag(tokens)]
+    return [p for _, p in _load_tagger().tag(tokens)]
 
 
 # ================================================================ fitur kapitalisasi (BiLSTM_TA_FIX.ipynb)
