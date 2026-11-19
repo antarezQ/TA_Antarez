@@ -1,0 +1,46 @@
+{
+ "recall_per": {
+  "CRF": {
+   "dikenal": {
+    "benar": 1162,
+    "total": 1267
+   },
+   "oov": {
+    "benar": 1312,
+    "total": 1491
+   }
+  },
+  "BiLSTM": {
+   "dikenal": {
+    "benar": 1159,
+    "total": 1267
+   },
+   "oov": {
+    "benar": 1116,
+    "total": 1491
+   }
+  },
+  "BiLSTM-CRF": {
+   "dikenal": {
+    "benar": 1166,
+    "total": 1267
+   },
+   "oov": {
+    "benar": 611,
+    "total": 1491
+   }
+  }
+ },
+ "frekuensi_contoh": {
+  "Yeltsin": 47,
+  "Wayne": 17,
+  "Boris": 14,
+  "Kohl": 5,
+  "Helmut": 3,
+  "Rooney": 0,
+  "Barack": 0,
+  "Obama": 0,
+  "Yamal": 0,
+  "Raphinha": 0
+ }
+}

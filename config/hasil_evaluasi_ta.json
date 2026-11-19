@@ -1,0 +1,24 @@
+{
+ "_keterangan": "Hasil evaluasi pada data uji CoNLL-2003, sesuai buku TA (Tabel 4.1 & 4.2) dan output notebook. Nilai 'PER' = rata-rata B-PER dan I-PER, yang dipakai di Tabel 4.1.",
+ "crf": {
+  "sumber": "CRF_TA_FIX.ipynb sel 5 · Buku TA Tabel 4.1 & 4.2",
+  "PER":   {"precision": 0.8467, "recall": 0.9000, "f1-score": 0.8724},
+  "B-PER": {"precision": 0.8279, "recall": 0.8510, "f1-score": 0.8393, "support": 1617, "TP": 1376, "FP": 286, "FN": 241},
+  "I-PER": {"precision": 0.8658, "recall": 0.9490, "f1-score": 0.9055, "support": 1156, "TP": 1097, "FP": 170, "FN": 59},
+  "O":     {"precision": 0.9882, "recall": 0.9892, "f1-score": 0.9887, "support": 38554}
+ },
+ "bilstm": {
+  "sumber": "BiLSTM_TA_FIX.ipynb sel 6 · Buku TA Tabel 4.1 & 4.2",
+  "PER":   {"precision": 0.9190, "recall": 0.8245, "f1-score": 0.8675},
+  "B-PER": {"precision": 0.908, "recall": 0.757, "f1-score": 0.825, "support": 1610, "TP": 1218, "FP": 123, "FN": 392},
+  "I-PER": {"precision": 0.929, "recall": 0.892, "f1-score": 0.910, "support": 1150, "TP": 1026, "FP": 78, "FN": 124},
+  "O":     {"precision": 0.983, "recall": 0.992, "f1-score": 0.988, "support": 38521}
+ },
+ "bilstm_crf": {
+  "sumber": "BiLSTM_CRF_FIX.ipynb sel 6 · Buku TA Tabel 4.1 & 4.2",
+  "PER":   {"precision": 0.8868, "recall": 0.6759, "f1-score": 0.7656},
+  "B-PER": {"precision": 0.9045, "recall": 0.6292, "f1-score": 0.7421, "support": 1610, "TP": 1013, "FP": 107, "FN": 597},
+  "I-PER": {"precision": 0.8692, "recall": 0.7226, "f1-score": 0.7892, "support": 1150, "TP": 831, "FP": 125, "FN": 319},
+  "O":     {"precision": 0.9578, "recall": 0.9807, "f1-score": 0.9691, "support": 38521}
+ }
+}
